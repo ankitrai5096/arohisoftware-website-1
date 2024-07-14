@@ -1,15 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 
+
 const leaders = [
   {
-    name: ' Sanket Ghodake',
+    name: 'Dr. Bhaskar Ghosh',
     title: 'Chief Strategy Officer',
     imgSrc: 'https://media.istockphoto.com/id/1386479313/photo/happy-millennial-afro-american-business-woman-posing-isolated-on-white.jpg?s=612x612&w=0&k=20&c=8ssXDNTp1XAPan8Bg6mJRwG7EXHshFO5o0v9SIj96nY=',
-    // linkedIn: 'https://www.linkedin.com/in/drbhaskargosh',
+    linkedIn: 'https://www.linkedin.com/in/drbhaskargosh',
   },
   {
-    name: 'Poonam Dogole',
+    name: 'Dr. Bhaskar Ghosh',
     title: 'Chief Strategy Officer',
     imgSrc: 'https://media.istockphoto.com/id/1386479313/photo/happy-millennial-afro-american-business-woman-posing-isolated-on-white.jpg?s=612x612&w=0&k=20&c=8ssXDNTp1XAPan8Bg6mJRwG7EXHshFO5o0v9SIj96nY=',
     linkedIn: 'https://www.linkedin.com/in/drbhaskargosh',
