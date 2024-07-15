@@ -6,9 +6,6 @@ import logo from "../../../public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
-
-
-
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,9 +16,15 @@ function Navbar({ className }: { className?: string }) {
 
   return (
     <div className={cn("fixed top-0 inset-x-0 z-50 w-full", className)}>
-      <nav className="bg-black  w-full">
-        <div className="max-w-7xl mx-auto pr-10 flex justify-between items-center">
-          <div className="flex items-center">
+      <nav className="bg-black w-full">
+        <div className="max-w-7xl mx-auto pr-5 flex justify-between items-center lg:justify-start">
+         
+          <div className="block lg:hidden pl-5 lg:pl-0 space-x-4">
+              <Link href="/login">
+                <button className="text-white focus:outline-none">Login</button>
+              </Link>
+              </div>
+          <div className="flex-1 lg:flex-none flex justify-center lg:justify-start">
             <Link href="/">
               <Image src={logo} alt="Logo" className="w-16 h-16" />
             </Link>
@@ -33,10 +36,9 @@ function Navbar({ className }: { className?: string }) {
                 setActive={setActive}
                 active={active}
                 item="What we do >"
-                
               >
-                <div className="flex  justify-around space-y-6 m-2 mx-10 lg:space-x-10 ">
-                  <div className="flex flex-col lg:space-y-4 sm: py-7 ">
+                <div className="flex justify-around space-y-6 m-2 mx-10 lg:space-x-10">
+                  <div className="flex flex-col lg:space-y-4 py-7">
                     <p className="mb-2 text-xl text-slate-400 hover:text-yellow-400 hover:cursor-text">
                       What we do<span>➡️</span>
                     </p>
@@ -88,7 +90,7 @@ function Navbar({ className }: { className?: string }) {
                 item="What we are >"
               >
                 <div className="flex justify-around space-y-6 lg:space-x-10 p-10 rounded">
-                  <div className="flex flex-col space-y-4 ">
+                  <div className="flex flex-col space-y-4">
                     <p className="mb-2 text-xl text-slate-400 hover:text-yellow-400 hover:cursor-pointer">
                       About Arohi Software <span>➡️</span>
                     </p>
@@ -139,8 +141,8 @@ function Navbar({ className }: { className?: string }) {
               </MenuItem>
 
               <MenuItem setActive={setActive} active={active} item="Careers >">
-                <div className="flex justify-around space-y-6 space-x-10 p-10  rounded">
-                  <div className="flex flex-col  space-y-4">
+                <div className="flex justify-around space-y-6 space-x-10 p-10 rounded">
+                  <div className="flex flex-col space-y-4">
                     <p className="mb-2 text-xl text-slate-400 hover:text-yellow-400 hover:cursor-text">
                       Careers home <span>➡️</span>
                     </p>
@@ -226,9 +228,9 @@ function Navbar({ className }: { className?: string }) {
               </button>
             </div>
 
-            <div className="block lg:hidden  space-x-4">
+            <div className="block lg:hidden space-x-4">
               <Link href="/login">
-                <button className="text-white focus:outline-none">Login</button>
+                <button className="text-white hidden lg:block focus:outline-none">Login</button>
               </Link>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -266,7 +268,7 @@ function Navbar({ className }: { className?: string }) {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="lg:hidden">
-            <div className=" items-center w-full bg-black px-5 pt-4 pb-3 space-y-1 sm:px-3">
+            <div className="items-center w-full bg-black px-5 pt-4 pb-3 space-y-1 sm:px-3">
               <Menu
                 setActive={setActive}
                 className="flex flex-col items-start space-y-4 w-full"
@@ -276,18 +278,26 @@ function Navbar({ className }: { className?: string }) {
                   active={active}
                   item="What we do >"
                 >
-                  <div className=" pb-4">
+                  <div className="pb-4">
                     <HoveredLink href="/service" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Services</span>
+                      <span className="text-white block w-full text-left py-2">
+                        Services
+                      </span>
                     </HoveredLink>
                     <HoveredLink href="/research" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Research & Innovations</span>
+                      <span className="text-white block w-full text-left py-2">
+                        Research & Innovations
+                      </span>
                     </HoveredLink>
                     <HoveredLink href="/security" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Security</span>
+                      <span className="text-white block w-full text-left py-2">
+                        Security
+                      </span>
                     </HoveredLink>
                     <HoveredLink href="/learning" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Learning</span>
+                      <span className="text-white block w-full text-left py-2">
+                        Learning
+                      </span>
                     </HoveredLink>
                     <HoveredLink
                       href="/marketing&experience"
@@ -299,6 +309,91 @@ function Navbar({ className }: { className?: string }) {
                     </HoveredLink>
                   </div>
                 </MenuItem>
+                
+                <MenuItem
+                  setActive={setActive}
+                  active={active}
+                  item="Careers >"
+                >
+                  <div className="pb-4">
+                    <HoveredLink href="/courses" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Training & Development
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink
+                      href="/experienceProf"
+                      onClick={handleLinkClick}
+                    >
+                      <span className="text-white block w-full text-left py-2">
+                        Experience Professionals
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/worken" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Work environment
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/jobs" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Search all Jobs
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/contact" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Contact Us
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/faq" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        FAQ
+                      </span>
+                    </HoveredLink>
+                  </div>
+                </MenuItem>
+                <MenuItem
+                  setActive={setActive}
+                  active={active}
+                  item="What we are >"
+                >
+                  <div className="pb-4">
+                    <HoveredLink href="/courses" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Our organization
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/leaders" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Leaders
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/location" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Locations
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/gallery" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Gallery
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/events" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Events
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/media" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Media Relations
+                      </span>
+                    </HoveredLink>
+                    <HoveredLink href="/investor" onClick={handleLinkClick}>
+                      <span className="text-white block w-full text-left py-2">
+                        Investor Relations
+                      </span>
+                    </HoveredLink>
+                  </div>
+                </MenuItem>
                 <Link href="/whatweThink">
                   <MenuItem
                     setActive={setActive}
@@ -306,70 +401,11 @@ function Navbar({ className }: { className?: string }) {
                     item="What we think"
                   />
                 </Link>
-                <MenuItem
-                  setActive={setActive}
-                  active={active}
-                  item="What we are >"
-                >
-                  <div className=" pb-4">
-                    <HoveredLink href="/courses" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Our organization</span>
-                    </HoveredLink>
-                    <HoveredLink href="/leaders" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Leaders</span>
-                    </HoveredLink>
-                    <HoveredLink href="/location" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Locations</span>
-                    </HoveredLink>
-                    <HoveredLink href="/gallery" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Gallery</span>
-                    </HoveredLink>
-                    <HoveredLink href="/events" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Events</span>
-                    </HoveredLink>
-                    <HoveredLink href="/media" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Media Relations</span>
-                    </HoveredLink>
-                    <HoveredLink href="/investor" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Investor Relations</span>
-                    </HoveredLink>
-                  </div>
-                </MenuItem>
-                <MenuItem
-                  setActive={setActive}
-                  active={active}
-                  item="Careers >"
-                  
-                >
-                  <div className=" pb-4">
-                    <HoveredLink href="/courses" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Training & Development</span>
-                    </HoveredLink>
-                    <HoveredLink
-                      href="/experienceProf"
-                      onClick={handleLinkClick}
-                    >
-                      <span className="text-white block w-full text-left py-2">Experience Professionals</span>
-                    </HoveredLink>
-                    <HoveredLink href="/worken" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Work environment</span>
-                    </HoveredLink>
-                    <HoveredLink href="/jobs" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Search all Jobs</span>
-                    </HoveredLink>
-                    <HoveredLink href="/contact" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">Contact Us</span>
-                    </HoveredLink>
-                    <HoveredLink href="/faq" onClick={handleLinkClick}>
-                      <span className="text-white block w-full text-left py-2">FAQ</span>
-                    </HoveredLink>
-                  </div>
-                </MenuItem>
+                
               </Menu>
             </div>
           </div>
         )}
-
       </nav>
     </div>
   );
